@@ -1,3 +1,5 @@
+<!-- meta -->
+	<meta charset="utf-8">
 <!-- plugins -->
 	<link rel="stylesheet" type="text/css" href=<?php echo base_url("resources/plugins/css/bootstrap.css") ?> >
 	<link rel="stylesheet" type="text/css" href=<?php echo base_url("resources/css/style.css") ?> >

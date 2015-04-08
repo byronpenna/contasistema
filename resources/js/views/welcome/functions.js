@@ -3,9 +3,10 @@ function iniciarSesion(frm){
 		console.log(data);
 		datos = jQuery.parseJSON(data);
 		if(datos.estado){
-			window.locationf=baseurl+"";
+			url = baseurl+"home/";
+			window.location=url;
 		}else{
-			$(".divErrorMessage").empty().append("Usuario y/o contraseña incorrecta");
+			$("#divErrorMessage").empty().append("Usuario y/o contraseña incorrecta");
 		}
 	});
 }
