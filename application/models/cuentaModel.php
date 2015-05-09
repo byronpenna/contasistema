@@ -7,8 +7,9 @@ class CuentaModel extends Padrem
 		parent::__construct();
 	}
 	public function getCuentas(){
-		/*$query 		= $this->db->get('cuentas');
-		$resultado 	= */
+		$query 		= $this->db->get('vw_cuentas');
+		$resultado 	= $query->result();
+		return $resultado;
 	}
 	public function agregarCuenta($frm){
 		$data = array(

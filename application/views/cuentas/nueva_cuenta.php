@@ -9,6 +9,7 @@
 	<script type="text/javascript" src=<?php echo base_url("resources/js/views/cuentas/functions.js") ?> ></script>
 </head>
 <body>
+
 	<div class="col-lg-12">
 		<?php $this->load->view("parts/menu.php"); ?>
 		<h2>Agregar nueva cuenta</h2>
@@ -61,14 +62,32 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Numero cuenta<th>
-				<th>Nombre<th>
+				<th>Numero cuenta</th>
+				<th>Nombre</th>
 				<th>Descripcion</th>
 				<th>Tipo cuenta</th>
+				<th>Acciones</th>
 			</tr>	
 		</thead>
 		<tbody>
-			
+			<?php 
+				foreach ($cuentas as $key => $cuenta) {
+			?>
+				<tr>
+					<td class="hidden">
+						<input type="text" name="txtHdIdCuenta" value=<?php echo "'".$cuenta->idCuenta."'" ?> > 
+					</td>
+					<td><?= $cuenta->numero ?></td>
+					<td><?= $cuenta->nombre ?></td>
+					<td><?= $cuenta->descripcion ?></td>
+					<td><?= $cuenta->tipo ?></td>
+					<td>
+						<i class='fa fa-times pointer btnDelete'>
+					</td>
+				</tr>
+			<?php 
+				}
+			?>
 		</tbody>
 	</table>
 </body>

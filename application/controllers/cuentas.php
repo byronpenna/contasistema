@@ -13,17 +13,26 @@ class Cuentas extends Padre
 		}
 	// views 
 		public function addCuenta(){
-			$this->load->view("cuentas/nueva_cuenta.php");
+			$cuentas = $this->getCuentas();
+			$data = array(
+				'cuentas' => $cuentas
+			);
+			$this->load->view("cuentas/nueva_cuenta.php",$data);
 		}
 	// gets
 		public function getCuentas(){
-
+			$cuentas = $this->_model->getCuentas();
+			return $cuentas;
 		}
 	// acciones 
+		public function ajax_eliminarCuenta(){
+			$frm = $this->getAjaxFrm();
+		}
 		public function ajax_agregarCuenta(){
 			$frm = $this->getAjaxFrm();
 			$frm->txtAreaDescrip = nl2br($frm->txtAreaDescrip);
 			$respuesta = $this->_model->agregarCuenta($frm);
+			$respuesta->estado = $this->resultadoCorrecto($respuesta);
 			echo json_encode($respuesta);
 		}
 }
