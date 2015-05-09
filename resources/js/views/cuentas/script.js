@@ -5,7 +5,7 @@ $(document).ready(function(){
 		frm = serializeToJson($(this).serializeArray());
 		//console.log("El formulario es",frm);
 		if(x){
-			//guardarCuenta(frm);
+			guardarCuenta(frm);
 		}
 	});
 });

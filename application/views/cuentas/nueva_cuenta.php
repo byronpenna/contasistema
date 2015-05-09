@@ -58,6 +58,18 @@
 			</div>
 		</form>	
 	</div>
-	
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Numero cuenta<th>
+				<th>Nombre<th>
+				<th>Descripcion</th>
+				<th>Tipo cuenta</th>
+			</tr>	
+		</thead>
+		<tbody>
+			
+		</tbody>
+	</table>
 </body>
 </html>
