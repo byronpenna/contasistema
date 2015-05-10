@@ -6,10 +6,14 @@
 		<a href="#">Cuentas</a>
 		<ul>
 			<li>
-				<a href=<?php echo site_url("cuentas/addCuenta") ?> >Agregar cuenta</a>
+				<a href=<?php echo site_url("cuentas/addCuenta") ?> >
+					Gestion de cuentas
+				</a>
 			</li>
 			<li>
-				<a href="#">Ver cuentas</a>
+				<a href=<?php echo site_url("partidas/agregarPartida") ?> >
+					Partidas
+				</a>
 			</li>
 		</ul>
 	</li>

@@ -26,13 +26,16 @@ class Cuentas extends Padre
 		}
 	// acciones 
 		public function ajax_eliminarCuenta(){
-			$frm = $this->getAjaxFrm();
+			$frm 				= $this->getAjaxFrm();
+			$respuesta 			= $this->_model->ajax_eliminarCuenta($frm);
+			$respuesta->estado	= $this->resultadoCorrecto($respuesta);
+			echo json_encode($respuesta);
 		}
 		public function ajax_agregarCuenta(){
-			$frm = $this->getAjaxFrm();
-			$frm->txtAreaDescrip = nl2br($frm->txtAreaDescrip);
-			$respuesta = $this->_model->agregarCuenta($frm);
-			$respuesta->estado = $this->resultadoCorrecto($respuesta);
+			$frm 					= $this->getAjaxFrm();
+			$frm->txtAreaDescrip 	= nl2br($frm->txtAreaDescrip);
+			$respuesta 				= $this->_model->agregarCuenta($frm);
+			$respuesta->estado 		= $this->resultadoCorrecto($respuesta);
 			echo json_encode($respuesta);
 		}
 }

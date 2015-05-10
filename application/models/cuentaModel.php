@@ -11,6 +11,14 @@ class CuentaModel extends Padrem
 		$resultado 	= $query->result();
 		return $resultado;
 	}
+	public function ajax_eliminarCuenta($frm){
+		//txtHdIdCuenta
+		$data = array(
+			'idCuenta' => $frm->txtHdIdCuenta
+		);
+		$retorno = $this->deleteDb("cuentas",$data);
+		return $retorno;
+	}
 	public function agregarCuenta($frm){
 		$data = array(
 		   'numero' 			=> $frm->txtNumeroCuenta,
