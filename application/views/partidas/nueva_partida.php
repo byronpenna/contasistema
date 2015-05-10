@@ -5,8 +5,11 @@
 	<?php 
 		$this->load->view("parts/loads.php");
 	?>
-	<script type="text/javascript" src=<?php echo base_url("resources/js/views/partidas/script.js") ?> ></script>
-	<script type="text/javascript" src=<?php echo base_url("resources/js/views/partidas/functions.js") ?> ></script>
+	<!-- scripts -->
+		<script type="text/javascript" src=<?php echo base_url("resources/js/views/partidas/script.js") ?> ></script>
+		<script type="text/javascript" src=<?php echo base_url("resources/js/views/partidas/functions.js") ?> ></script>
+	<!-- estilos -->
+		<link rel="stylesheet" type="text/css" href=<?php echo base_url("resources/css/views/partidas/style.css") ?>>
 </head>
 <body>
 	
@@ -23,7 +26,7 @@
 						<?php 
 							foreach ($cuentas as $key => $cuenta) {
 						?>
-							<option value="<?=$cuenta->idCuenta ?>"><?=$cuenta->nombre?></option>
+							<option value=<?php echo "'".$cuenta->idCuenta."'" ?>><?=$cuenta->nombre?></option>
 						<?php 
 							}
 						?>
@@ -32,13 +35,33 @@
 						Tipo de transaccion
 					</label>
 					<select class="form-control cbTipoTrans" name="cbTipoTrans">
-						<option>Cargo</option>
-						<option>Abono</option>
+						<option value="1">Cargo</option>
+						<option value="2">Abono</option>
 					</select>
 					<label>Monto</label>
 					<input type="text" placeholder='$' class="form-control txtMonto" name="txtMonto">
 					<button class="btn btnInsertDetalle">Ingresar detalle</button>
 				</form>
+			</div>
+			<div class="col-lg-4">
+				<label>Agregar parcial</label>
+				<input type="checkbox" name="ckParcial" class="ckParcial">
+				<div class="divParcial hidden">
+					<div class="detalleParcial">
+						<div class="col-lg-5">
+							<label>Monto</label>
+							<input type="text" placeholder='0.00' name="txtParcialMonto" class="txtParcialMonto form-control">
+						</div>
+						<div class="col-lg-5">
+							<label>Descripcion</label>
+							<textarea name='txtAreaParcialDescripcion' class="txtAreaParcialDescripcion form-control" ></textarea>
+						</div>
+						<div class="col-lg-2">
+							<label>.</label>
+							<button class="btn btnMasParcial"  style="vertical-align:bottom">+</button>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 		<div class="row">
@@ -47,12 +70,13 @@
 					<tr>
 						<th>Cuenta</th>
 						<th>Descripcion</th>
-						<th>Tipo</th>
+						<!-- <th>Tipo</th> -->
 						<th>Parcial</th>
 						<th>Cargo</th>
 						<th>Abono</th>
 					</tr>
 				</thead>
+				<!--
 				<tbody id="tbPrincipal">
 					<tbody class="tbAsiento">
 						<tr class="asientoPrincipal">
@@ -87,12 +111,18 @@
 						</tr>		
 					</tbody>
 				</tbody>
+				-->
 			</table>
+		</div>
+		<div class="row divGenerales">
+			<label>Fecha de partida</label>
+			<input type="date" name='dtpFecha' class="form-control">
+			<label>Descripcion partida</label>
+			<textarea class="form-control" name="txtDescripcionPartida"></textarea>
 		</div>
 		<div class="text-center">
 			<button class="btn btnGuardarPartida">Guardar partida</button>	
-		</div>
-		
+		</div>		
 	</div>
 </body>
 </html>

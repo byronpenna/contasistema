@@ -80,7 +80,7 @@
 					<td><?= $cuenta->numero ?></td>
 					<td><?= $cuenta->nombre ?></td>
 					<td><?= $cuenta->descripcion ?></td>
-					<td><?= $cuenta->tipo ?></td>
+					<!-- <td><?= $cuenta->tipo ?></td> -->
 					<td>
 						<i class='fa fa-times pointer btnDelete'>
 					</td>
