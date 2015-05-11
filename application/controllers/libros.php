@@ -24,9 +24,10 @@ class Libros extends Padre
 			echo json_encode($respuesta);
 		}
 		public function getLibroMayor(){
-			$frm 			= new stdClass();
-			$frm->idCuenta 	= 7;
+			/*$frm 			= new stdClass();
+			$frm->idCuenta 	= 7;*/
+			$frm 			= $this->getAjaxFrm(); 
 			$respuesta 		= $this->_model->getLibroMayor($frm);
-			echo "<pre>".json_encode($respuesta)."</pre>";
+			echo json_encode($respuesta);
 		}
 }

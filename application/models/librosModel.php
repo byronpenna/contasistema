@@ -14,13 +14,13 @@ class LibrosModel extends Padrem
 			$sql 		= "call sp_getCargoAbonoCuenta(".$frm->idCuenta.",".$i.")";
 			$query 		= $this->db->query($sql);
 			$result 	= $query->result();
-			
 			$resultados[$i-1] = $result;
 			$query->free_result();
 			$query->next_result();
 		}
 		$retorno->cargos = $resultados[0]; 
 		$retorno->abonos = $resultados[1];
+		$retorno->estado = true;
 		return $retorno;
 	}
 	//
