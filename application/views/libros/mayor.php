@@ -23,23 +23,25 @@
 					<option value="3">Capital</option>
 				</select>		
 				<label>Seleccione cuenta</label>
-				<select name="cbTipoCuenta" class="cbTipoCuenta form-control">
-					<option value="1"></option>
+				<select name="cbCuenta" class="cbCuenta form-control">
+					<option value="-1"></option>
 				</select>		
 			</div>
 		</div>
 		<table class="table">
 			<thead>
 				<tr class="text-center">
-					<td colspan="2">Nombre cuenta</td>
+					<td colspan="2" class="tdNombreCuenta">Nombre cuenta</td>
 				</tr>
 				<tr>
-					<td>Cargo</td>
-					<td>Abono</td>
+					<td class="text-center">Cargos</td>
+					<td class="text-center">Abonos</td>
 				</tr>
 			</thead>
-			<tbody>
-				
+			<tbody class="tbMayor">
+				<tr>
+					<td colspan="2" class="text-center">Seleccione una cuenta para la mayorizacion</td>
+				</tr>
 			</tbody>
 		</table>
 	</div>
