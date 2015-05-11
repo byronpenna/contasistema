@@ -23,6 +23,7 @@ class Partidas extends Padre
 		public function ajax_guardarPartida(){
 			$frm 		= $this->getAjaxFrm();
 			$respuesta 	= $this->_model->ajax_guardarPartida($frm);
+			//$respuesta  = "";
 			echo json_encode($respuesta);
 		}
 }

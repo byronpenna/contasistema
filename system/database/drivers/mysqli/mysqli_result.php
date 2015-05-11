@@ -5,9 +5,8 @@
  * An open source application development framework for PHP 5.1.6 or newer
  *
  * @package		CodeIgniter
- * @author		EllisLab Dev Team
- * @copyright		Copyright (c) 2008 - 2014, EllisLab, Inc.
- * @copyright		Copyright (c) 2014 - 2015, British Columbia Institute of Technology (http://bcit.ca/)
+ * @author		ExpressionEngine Dev Team
+ * @copyright	Copyright (c) 2008 - 2014, EllisLab, Inc.
  * @license		http://codeigniter.com/user_guide/license.html
  * @link		http://codeigniter.com
  * @since		Version 1.0
@@ -22,7 +21,7 @@
  * This class extends the parent result class: CI_DB_result
  *
  * @category	Database
- * @author		EllisLab Dev Team
+ * @author		ExpressionEngine Dev Team
  * @link		http://codeigniter.com/user_guide/database/
  */
 class CI_DB_mysqli_result extends CI_DB_result {
@@ -112,15 +111,39 @@ class CI_DB_mysqli_result extends CI_DB_result {
 	 *
 	 * @return	null
 	 */
+	// function free_result()
+	// {
+	// 	if (is_object($this->result_id))
+	// 	{
+	// 		mysqli_free_result($this->result_id);
+	// 		$this->result_id = FALSE;
+	// 	}
+	// }
 	function free_result()
 	{
-		if (is_object($this->result_id))
-		{
-			mysqli_free_result($this->result_id);
-			$this->result_id = FALSE;
+		if (is_object($this->result_id)) {
+		mysqli_free_result($this->result_id);
+		/*
+		Edited by Safarath sk in order to free the mysqli multiple set results.
+		Date: 23/01/2011
+		*/
+		while ($this->conn_id->next_result()) {
+		/*free each result.*/
+		$result = $this->conn_id->use_result();
+		if ($result instanceof mysqli_result) {
+		$result->free();
+		}
+		}
+		$this->result_id = false;
 		}
 	}
-
+	function next_result()
+  	{
+    	if (is_object($this->conn_id))
+    	{
+      		return mysqli_next_result($this->conn_id);
+    	}
+  	}
 	// --------------------------------------------------------------------
 
 	/**

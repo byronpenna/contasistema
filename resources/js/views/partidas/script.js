@@ -49,19 +49,21 @@ $(document).ready(function(){
 					var asiento;
 					var parcial;
 					var cn 			= 0;
-					
 					$(".tbAsiento").each(function(i,detalleAsiento){
 						asiento 		= new Object(); 	
-						asiento.cuenta 	= $(this).find(".txtHdIdCuenta").val();
+						/*asiento.cuenta 	= $(this).find(".txtHdIdCuenta").val();
 						asiento.tipo 	= $(this).find(".txtHdTipoTrans").val();
 						asiento.cargo	= $(this).find(".tdCargo").text();
-						asiento.abono 	= $(this).find(".tdAbono").text();
+						asiento.abono 	= $(this).find(".tdAbono").text();*/
+						asiento = serializeSection($(this));
+						asiento.txtHdMonto = $(this).find(".txtHdMonto").val();
 						var j 			= 0;
 						parciales 		= new Array();
 						$(this).find(".trParcial").each(function(ii,detalleParcial){
-							parcial 				= new Object();
+							/*parcial 				= new Object();
 							parcial.monto 			= $(this).find(".tdParcial").text();
-							parcial.descripcion 	= $(this).find(".tdDescripcion").text();
+							parcial.descripcion 	= $(this).find(".tdDescripcion").text();*/
+							parcial = serializeSection($(this));
 							parciales[j] 			= parcial;
 							//console.log("parcial en el foreach",parcial);
 							j++;

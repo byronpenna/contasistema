@@ -17,4 +17,19 @@
 			</li>
 		</ul>
 	</li>
+	<li>
+		<a href="#">Reportes</a>
+		<ul>
+			<li>
+				<a href=<?php echo site_url("libros/mayor") ?> >
+					Libro mayor
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					Libro diario
+				</a>
+			</li>
+		</ul>
+	</li>
 </ul>

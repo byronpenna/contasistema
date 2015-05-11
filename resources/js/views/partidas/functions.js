@@ -36,8 +36,9 @@
 		}
 		tr = "\
 		<tr class='asientoPrincipal trAsiento'>\
-			<input type='hidden' class='txtHdIdCuenta' value='"+asiento.cbCuenta+"'>\
-			<input type='hidden' class='txtHdTipoTrans' value='"+asiento.cbTipoTrans+"'>\
+			<input type='hidden' class='txtHdIdCuenta' name='txtHdIdCuenta' value='"+asiento.cbCuenta+"'>\
+			<input type='hidden' class='txtHdTipoTrans' name='txtHdTipoTrans'  value='"+asiento.cbTipoTrans+"'>\
+			<input type='hidden' class='txtHdMonto' name='txtHdMonto' value='"+asiento.txtMonto+"'>\
 			<td class='tdCuenta'>"+asiento.nombreCuenta+"</td>\
 			<td class='tdDescripcion'></td>\
 			<td class='tdParcial'></td>\
@@ -54,6 +55,10 @@
 				// <td class='tdTipo'></td>\
 				tr = "\
 				<tr class='trParcial'>\
+					<td class='hidden'>\
+						<input type='text' name='txtHdMonto' class='txtHdMonto' value='"+parcial.monto+"'>\
+						<input type='text' name='txtHdDescripcion' class='txtHdDescripcion' value='"+parcial.descripcion+"'>\
+					</td>\
 					<td class='tdCuenta'></td>\
 					<td class='tdDescripcion'>"+parcial.descripcion+"</td>\
 					<td class='tdParcial'>$"+parcial.monto+"</td>\
@@ -71,6 +76,7 @@
 		console.log("formulario a agregar",frm);
 		cargarObjetoGeneral(baseurl+"partidas/ajax_guardarPartida",frm,function(data){
 			console.log("la data que regreso el servidor es: ",data);
+			data = jQuery.parseJSON(data);
 			if(data.estado){
 				alert("Partida guardada exitosamente");
 				window.location.reload();
@@ -89,7 +95,6 @@
 		}else{
 			$(".tbAsiento").last().after(trAdd);
 		}
-		
 	}
 	function btnMasParcial(divParcial){
 		// validar que este lleno el monto
