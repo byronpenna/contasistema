@@ -24,6 +24,13 @@ $(document).ready(function(){
 				frmPartida(asientoContable);
 			});
 		// click
+			$(document).on("click",".btnDeleteTr",function(){
+				var x = confirm("¿Esta seguro de eliminar fila?");
+				tr = $(this).parents("tr");
+				if(x){
+					tr.remove();
+				}
+			});
 			// seccion agregar parcial
 				$(document).on("click",".btnMenosParcial",function(){
 					divParcial = $(this).parents(".detalleParcial");

@@ -44,6 +44,7 @@
 			<td class='tdParcial'></td>\
 			<td class='tdCargo'>"+cargo+"</td>\
 			<td class='tdAbono'>"+abono+"</td>\
+			<td><i class='fa fa-times pointer btnDeleteTr'></i></td>\
 		</tr>";
 		// <td class='tdTipo'>"+tipo+"</td>\
 		return tr;
@@ -64,6 +65,7 @@
 					<td class='tdParcial'>$"+parcial.monto+"</td>\
 					<td class='tdCargo'></td>\
 					<td class='tdAbono'></td>\
+					<td><i class='fa fa-times pointer btnDeleteTr'></i></td>\
 				</tr>\
 				";
 				tbody += tr;

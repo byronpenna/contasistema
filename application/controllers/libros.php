@@ -14,7 +14,24 @@ class Libros extends Padre
 		public function mayor(){
 			$this->load->view("libros/mayor.php");
 		}
+		public function diario(){
+			$this->load->view("libros/diario.php");
+		}
 	// ajax 
+		public function getPartidasFecha(){
+			$this->load->model("partidaModel");
+			$retorno 		= new stdClass();
+			$partidaModel 	= new PartidaModel();
+			$frm 			= $this->getAjaxFrm();
+			$where = array(
+				'fecha' => $frm->fecha
+			);
+			$partidas = $partidaModel->ajax_getPartidasFecha($where);
+			$retorno->estado 	= true;
+			$retorno->partidas 	= $partidas;
+			echo json_encode($retorno);
+
+		}
 		public function getCuentasFromTipo(){
 			$this->load->model("cuentaModel");
 			$cuentaModel 	= new CuentaModel();

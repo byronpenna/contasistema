@@ -15,7 +15,7 @@
 	
 	<div class="col-lg-12">
 		<?php $this->load->view("parts/menu.php"); ?>	
-		<h2 class="text-center">Crear partida</h2>
+		<h2 class="text-center titlePrincipal">Crear partida</h2>
 		<div class="row">
 			<div class="col-lg-4">
 				<form id='frmPartida'>
@@ -40,7 +40,7 @@
 					</select>
 					<label>Monto</label>
 					<input type="text" placeholder='$' class="form-control txtMonto" name="txtMonto">
-					<button class="btn btnInsertDetalle">Ingresar detalle</button>
+					<button class="btn btnInsertDetalle btn-primary btnGuardar">Ingresar detalle</button>
 				</form>
 			</div>
 			<div class="col-lg-4">
@@ -74,54 +74,22 @@
 						<th>Parcial</th>
 						<th>Cargo</th>
 						<th>Abono</th>
+						<th>Accion</th>
 					</tr>
 				</thead>
-				<!--
-				<tbody id="tbPrincipal">
-					<tbody class="tbAsiento">
-						<tr class="asientoPrincipal">
-							<input type="hidden" class="txtHdIdCuenta" value='7'>
-							<input type="hidden" class="txtHdTipoTrans" value='1'>
-							<td class="tdCuenta">Cuenta</td>
-							<td class="tdDescripcion">Venta de X cosa</td>
-							<td class="tdTipo">Cargo</td>
-							<td class="tdParcial"></td>
-							<td class="tdCargo">$100</td>
-							<td class="tdAbono"></td>
-						</tr>	
-						<tr class="trParcial">
-							<td class="tdCuenta">Cuenta</td>
-							<td class="tdTipo">Tipo</td>
-							<td class="tdDescripcion">Descripcion del parcial</td>
-							<td class="tdParcial">$50</td>
-							<td class="tdCargo"></td>
-							<td class="tdAbono"></td>
-						</tr>
-					</tbody>
-					<tbody class="tbAsiento">
-						<tr class="asientoPrincipal">
-							<input type="hidden" class="txtHdIdCuenta" value='10'>
-							<input type="hidden" class="txtHdTipoTrans" value='2'>
-							<td class="tdCuenta">Cuenta2</td>
-							<td class="tdDescripcion">Venta de X cosa</td>
-							<td class="tdTipo">Abono</td>
-							<td class="tdParcial"></td>
-							<td class="tdCargo"></td>
-							<td class="tdAbono">$200</td>
-						</tr>		
-					</tbody>
-				</tbody>
-				-->
 			</table>
 		</div>
 		<div class="row divGenerales">
-			<label>Fecha de partida</label>
-			<input type="date" name='dtpFecha' class="form-control">
-			<label>Descripcion partida</label>
-			<textarea class="form-control" name="txtDescripcionPartida"></textarea>
+			<div class="col-lg-offset-3 col-lg-6">
+				<label>Fecha de partida</label>
+				<input type="date" name='dtpFecha' class="form-control">
+				<label>Descripcion partida</label>
+				<textarea class="form-control" name="txtDescripcionPartida"></textarea>	
+			</div>
+			
 		</div>
 		<div class="text-center">
-			<button class="btn btnGuardarPartida">Guardar partida</button>	
+			<button class="btn btnGuardarPartida btn-success btnGuardar">Guardar partida</button>	
 		</div>		
 	</div>
 </body>

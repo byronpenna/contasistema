@@ -34,6 +34,13 @@ class PartidaModel extends Padrem
 			return $data;
 		}
 	// acciones 
+		public function ajax_getPartidasFecha($where){
+			$this->db->trans_start();
+				$query = $query = $this->db->get_where('partidas', $where);
+				$retorno = $query->result();
+			$this->db->trans_complete();
+			return $retorno;
+		}
 		public function ajax_guardarPartida($frm){
 			//$this->db->trans_strict(FALSE);
 			$respuesta = new stdClass();

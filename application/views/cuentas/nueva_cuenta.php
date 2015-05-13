@@ -12,10 +12,10 @@
 
 	<div class="col-lg-12">
 		<?php $this->load->view("parts/menu.php"); ?>
-		<h2>Agregar nueva cuenta</h2>
+		<h2 class="titlePrincipal text-center">Agregar nueva cuenta</h2>
 		<form id="frmCuenta">
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-offset-3 col-lg-3">
 					<label>Tipo de cuenta</label>	
 				</div>
 				<div class="col-lg-3">
@@ -27,7 +27,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-offset-3 col-lg-3">
 					<label>Numero de cuenta</label>	
 				</div>
 				<div class="col-lg-3">
@@ -35,7 +35,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-offset-3 col-lg-3">
 					<label>Nombre de la cuenta</label>	
 				</div>
 				<div class="col-lg-3">
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-lg-3">
+				<div class="col-lg-offset-3 col-lg-3">
 					<label>Descripcion</label>	
 				</div>
 				<div class="col-lg-3">
@@ -52,14 +52,14 @@
 					</textarea>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-6">
+			<div class="row btnGuardar">
+				<div class="col-lg-12 text-center">
 					<button class="btn btn-primary" type="submit">Guardar cuenta</button>
 				</div>
 			</div>
 		</form>	
 	</div>
-	<table class="table">
+	<table class="table table-striped table-hover">
 		<thead>
 			<tr>
 				<th>Numero cuenta</th>
