@@ -9,7 +9,6 @@
 	<script type="text/javascript" src=<?php echo base_url("resources/js/views/cuentas/functions.js") ?> ></script>
 </head>
 <body>
-
 	<div class="col-lg-12">
 		<?php $this->load->view("parts/menu.php"); ?>
 		<h2 class="titlePrincipal text-center">Agregar nueva cuenta</h2>

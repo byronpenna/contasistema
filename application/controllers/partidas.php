@@ -19,6 +19,13 @@ class Partidas extends Padre
 			);
 			$this->load->view("partidas/nueva_partida.php",$data);
 		}
+		public function getTodaPartida($idPartida){
+			$partidas = $this->_model->getTodaPartida($idPartida);
+			$data = array(
+				'partidas' => $partidas
+			);
+			$this->load->view("partidas/detalle_partida.php",$data);
+		}
 	// ajax 
 		public function ajax_guardarPartida(){
 			$frm 		= $this->getAjaxFrm();

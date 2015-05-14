@@ -33,6 +33,26 @@ class PartidaModel extends Padrem
 			);
 			return $data;
 		}
+		public function getTodaPartida($idPartida){
+			$where 		= array('id' => $idPartida);
+			$retorno 	= new stdClass();
+			$this->db->trans_start();
+				$headPartida 		= $this->db->get_where('partidas',$where);
+				//$this->db->insert_id();
+				$retorno->partida 	= $headPartida->result();
+				$where 				= array('id_partida_fk' => $idPartida ); 
+				$detallePartida 	= $this->db->get_where("vw_detallepartida",$where);
+				$retorno->detalles 	= $detallePartida->result();
+				foreach ($retorno->detalles as $key => $value) {
+					$where = array(
+						'id_detalle_fk' => $value->idDetalle
+					);
+					$parciales = $this->db->get_where("parcial",$where);
+					$retorno->detalles[$key]->parciales = $parciales->result();
+				}
+			$this->db->trans_complete();
+			return $retorno;
+		}
 	// acciones 
 		public function ajax_getPartidasFecha($where){
 			$this->db->trans_start();

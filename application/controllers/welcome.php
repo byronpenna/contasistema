@@ -11,7 +11,7 @@ class Welcome extends CI_Controller {
 	}
 	public function ajax_login(){
 		$frm = json_decode($_POST["form"]);
-		$modelo = new WelcomeModel();
+		$modelo = new welcomeModel();
 		$resultado = $modelo->logueo($frm);
 		echo json_encode($resultado);
 	}

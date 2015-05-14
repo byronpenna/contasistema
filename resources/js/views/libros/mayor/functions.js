@@ -42,10 +42,14 @@
 // acciones scripts
 	function cbCuenta(frm){
 		console.log("el formulario a enviar es: ",frm);
+		stringLoader = "\
+		<tr>\
+			<td colspan='2' class='text-center'><img src='"+urlImgGif+"'></td>\
+		</tr>\
+		";
 		cargarObjetoGeneral(baseurl+"libros/getLibroMayor",frm,function(data){
 			//console.log("la data del servidor es: ",data);
 			data = jQuery.parseJSON(data);
-			console.log(data);
 			if(data.estado){
 				if(data.cargos.length > 0 || data.abonos.length > 0){
 					tr = getTrMayorizacion(data);	
@@ -56,19 +60,19 @@
 			}else{
 				alert("Ocurrio un error al cargar libro mayor");
 			}
-		});
+		},$(".tbMayor"),stringLoader);
 	}
 	function cbTipoCuenta(frm){
 		console.log("formlario a enviar es:",frm);
+		stringLoader = "<option value='-1'>Cargando cuentas...</option>";
 		cargarObjetoGeneral(baseurl+"libros/getCuentasFromTipo",frm,function(data){
 			console.log("la respuesta del servidor es: ",data);
 			data = jQuery.parseJSON(data);
-			console.log(data);
 			if(data.estado){
 				options = getSelectCuentas(data.cuentas);
 				$(".cbCuenta").empty().append(options);
 			}else{
 				alert("Error en la carga")
 			}
-		})
+		},$(".cbCuenta"),stringLoader);
 	}

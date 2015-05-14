@@ -1,10 +1,16 @@
 // Ajax
-    function cargarObjetoGeneral(urlAjax,frm,callBack) {
+    function cargarObjetoGeneral(urlAjax,frm,callBack,loader,img) {
         $.ajax({
             url: urlAjax,
             type: 'POST',
             data: {
                 form: JSON.stringify(frm)
+            },
+            beforeSend: function(){
+                if(loader !== undefined && loader !== null){
+                    console.log(urlImgGif);
+                    loader.empty().append(img);
+                }
             },
             success: function (data) {
                 callBack(data);
